@@ -1,0 +1,267 @@
+
+<style type="text/css">
+
+#maincontent{
+		
+				margin-top: 0px;
+				display: block;
+				float: left;
+				overflow: hidden;
+				width: 100%;
+				
+							}
+	#drv{
+		margin-top: 0px;
+		display: block;
+		float: left;
+		overflow: hidden;
+		width: 100%;
+		height: 800px;
+		position: relative;		
+}
+	#weiz{	
+		
+			margin-top: 0px;
+			display: block;
+			float: left;
+			overflow: hidden;
+			height: 800px;
+			width: 100%;
+	}
+			.contenttext{
+			   
+				display: block;
+				color: black;
+				float: left;
+				width: 60%;
+
+			}
+			.contenttext h1,.contenttext h2,.contenttext h3,.contenttext h4{
+				color: rgb(140,9,9);
+				}
+				.contenttext h3.headlines  a{
+					color: rgb(140,9,9);
+				}
+				.contentcolumn{
+				
+					background: blueviolet url() no-repeat;
+					float: right;
+					width: 20%;
+				
+					margin-right: 0;
+					}
+				.contentcolumn p{
+					font-size: 1.1em;
+					margin-left: 25px;
+					}
+				.contentcolumn ul{
+					font-size:1.1em;
+				
+					}
+					.contentcolumn h3{
+						background: transparent url()no-repeat;
+						position: relative;
+						left: 0px;
+						height: 26px;
+						width: 315px;
+						margin-top: 10px;
+						padding-top: 16px;
+						padding-left: 8px;
+						font-size: 1.1em;
+						z-index: 1;
+						font-family: verdana "verdana, geneva, arial, helvetica, sans-serif";
+						}
+						.contentcolumn h3 span{margin-left: 10px;}
+						.contentcolumn span.name{
+							text-align: right;
+							color: rgb(223,58,0);
+							margin-right: 5px;
+						}
+						.contentcolumn a{color: rgb(255,255,255);
+						padding-left: 10px;
+						}
+						.contentcolumn a:hover{color: rgb(80,210,122);}
+						p.comments{
+							text-align: right;
+							font-size: 0.9em;
+							font-weight: bold;
+							padding-right: 10px;
+						}
+						.maincontent-bottom{
+							background: transparent url() no-repeat scroll left bottom;
+							clear: both;
+							display: block;
+							font-size: 0pt;
+						}
+						
+				#loco{	
+						margin: 0 auto;
+						display: block;
+						float: left;
+						overflow: hidden;
+						width: 100%;	
+						height: 800px;
+						position: relative;		
+					}
+				.center {
+					position: absolute;
+					left: 30%;
+					 margin-top: 20px;
+					 text-align: center;
+					 width: 700px;
+					 height: 800px;
+				 /* border: 20px solid #000000; */
+					 /* -ms-transform: translate(-50%,-50%);
+					 -moz-transform: translate(-50%,-50%);
+					 -o-transform: translate(-50%,-50%); */
+		/* 			 transform: translate(-50%,-50%); */
+				/* border: 20px solid #000000; */
+				 }	
+			label{
+			text-align: center;
+			}
+				 
+								
+		.footer{
+		background: transparent url() no-repeat scroll left bottom;
+		margin-top: 5px;
+		padding-top: 2px;
+		height: 10%;}
+		.footer p{text-align: center;}
+		.footer a{color: rgb(255,255,255);}
+		.footer a:hover{color: rgb(223,58,0);}
+		p.iv {float: right;margin-right: 13px;  font-size: 0.75em;}
+		p.iv a{color: rgb(80,210,122);}
+ body, ul,li{
+	 margin: 0;
+	 padding: 0;
+	 /*background: ;*/	
+ }
+ a{
+	 text-decoration: none;
+ }
+ .top{
+	 height: 40px;
+   width: 100%;
+ }
+ .width1{
+	 width: 100%;
+ }
+ .top a{
+	 color: #8A2BE2;
+	 font-size: 32px;
+ }
+ .top a:hover{
+	 color: #fff;
+ }
+ .container{
+	 margin: 0 auto;
+	
+ }
+ .container::before ,.container::after .clearfix::before,.clearfix::after{
+	 content: "";
+	 display: table;
+ }
+ .container::after,.clearfix::after{
+	 clear: both;
+ }
+.top-nav{
+	float: left;
+	height: 40px;
+	line-height: 40px;
+	font-size: 0;
+	background-color: #000000;
+	width: 100%;
+} 
+.top-nav span{
+	font-size: 12px;
+	color: #000000;
+	font-family: sans-serif;
+	margin: 0.5em;
+	
+}
+.headertitle{
+	width: 100%;
+	/*background-color: #F8F8F8;*/
+	background: url(../img/tim.jpg);
+}
+.headertitle .header-title{
+	margin-top: 20px;
+	margin-bottom: 10px;
+	text-align: center;
+	}
+.headertitle .header-title a{
+		color: #000000;
+		font-size: 50px;
+		display: block;
+		background: no-repeat;
+	}
+.headertitle .header-title a  .lr{
+		text-align: left;
+		text-indent: -9992em;   
+	}
+	.ico{
+		width: 20px;
+		height: 20px;
+	}
+	
+	
+.header{
+	width: 100%;
+	height: 200px;
+	overflow: hidden;
+	/*background: #F8F8F8;*/
+	background: url(../img/tim.jpg);
+}
+.header-nav{
+	height: 100px;
+	position: relative;
+}
+.header-nav .nav-list{
+
+	height: 80px;
+	font-size: 26px;
+	padding: 20px 40px  40px 38px;
+	position: absolute;
+	
+}
+.header-nav .nav-list .nav-item{
+
+	list-style-type: none;
+	float: left;
+	width: 320px;
+	margin-right: 3px;
+}
+.header-nav .nav-list .nav-itemm{
+	
+	width:150px;
+	float: left;
+	font-size: 27px;
+	padding: 0px 15px 0 0px;
+}
+.header-nav .nav-list .nav-itemm a{
+	display: block;
+	text-align: center;
+	padding: 26px 0 38px;
+	color: #000000;
+}
+.header-nav .nav-list .nav-item a{
+	display: block;
+	text-align: center;
+	padding: 26px 70px 38px;
+	color: #000000;
+	
+}
+.header-nav .nav-list .nav-item a:hover{
+	color: red;
+	}
+ul{
+	list-style-type:none;
+}
+.seckill{
+	background-color: #000000;
+}
+.seckill-g{
+	
+}
+</style>

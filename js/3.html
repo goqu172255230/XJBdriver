@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+
+	</head>
+
+	<body onload="init()" id="data">
+		<script>
+			var datatable = null;
+			var db = openDatabase("MyData", "", "My Database", 1024 * 100);
+			if(!db) {
+				alert("浏览器不支持html5数据库");
+
+			}
+
+			function init() {
+				datatable = document.getElementById("datatable");
+				showAllData();
+			}
+
+			function removeAllData() {
+
+				if(datatable.childNodes.length > 0) {
+					for(var i = datatable.childNodes.length - 1; i >= 0; i--) {
+						datatable.removeChild(datatable.childNodes[i]);
+					}
+				}
+
+				var tr = document.createElement("tr");
+				var th1 = document.createElement("th");
+				var th2 = document.createElement("th");
+				var th3 = document.createElement("th");
+				th1.innerHTML = "姓名";
+				th2.innerHTML = "留言";
+				th3.innerHTML = "时间";
+				tr.appendChild(th1);
+				tr.appendChild(th2);
+				tr.appendChild(th3);
+				datatable.appendChild(tr);
+			}
+
+			function showData(row) {
+				var tr = document.createElement("tr");
+				var td1 = document.createElement("td");
+				td1.innerHTML = row.name;
+				var td2 = document.createElement("td");
+				td2.innerHTML = row.message;
+				var td3 = document.createElement("td");
+				var t = new Date();
+				t.setTime(row.time);
+				td3.innerHTML = t.toLocaleDateString() + "" + t.toLocaleTimeString();
+				tr.appendChild(td1);
+				tr.appendChild(td2);
+				tr.appendChild(td3);
+				datatable.appendChild(tr);
+			}
+
+			function showAllData() {
+				db.transaction(function(tx) {
+					tx.executeSql("create table if not  exists MsgData(name text,message text ,time integer)", []);
+					//							tx.executeSql('insert into MsgData values(?,?,?)',["xiaoming","haha",2]);
+					tx.executeSql("select * from MsgData", [], function(tx, rs) {
+						removeAllData();
+						for(var i = 0; i < rs.rows.length; i++) {
+							showData(rs.rows.item(i))
+						}
+					})
+				})
+			}
+
+			function addData(name, message, time) {
+				db.transaction(function(tx) {
+					tx.executeSql("insert into MsgData values(?,?,?)", [name, message, time], function(tx, rs) {
+						alert("成功");
+					}, function(tx, error) {
+						alert(error.source + "::" + error.message);
+
+					})
+
+				})
+			}
+
+			function saveData() {
+				var name = document.getElementById("name").value;
+				var memo = document.getElementById("memo").value;
+				var time = new Date().getTime();
+				//							var time=10;
+				addData(name, memo, time);
+				showAllData();
+			}
+		</script>
+
+		<table border="0">
+			<!-- <tr><th>Header</th></tr> -->
+			<tr>
+				<td>姓名:</td>
+				<td><input type="text" name="" id="name" value="" /></td>
+			</tr>
+			<tr>
+				<td>留言:</td>
+				<td><input type="text" id="memo" /></td>
+			</tr>
+			<tr>
+				<td> <button type="submit" onclick="saveData()">保存</button>
+					<td> <button type="submit" onclick="removeAllData()">del</button>
+
+					</td>
+				</td>
+			</tr>
+		</table>
+		<hr>
+		<table border="1" id="datatable">
+		</table>
+		<p id="msg"></p>
+
+	</body>
+
+</html>
