@@ -1,4 +1,4 @@
-//var sql=require('mssql');
+﻿//var sql=require('mssql');
 //var conn_str="Driver={SQL Server Native Client 11.0};Server={.};Database={.};uid=sa;PWD=1234;";
 // 
 //sql.open(conn_str, function (err, conn) {
@@ -19,7 +19,7 @@
 //
 //  })
 //
-
+   
 var express = require('express');
 var app = express();
 var db = require('./db');
