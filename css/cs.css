@@ -1,4 +1,5 @@
-<style type="text/css">#maincontent {
+<style type="text/css">
+	#maincontent {
 	margin-top: 0px;
 	display: block;
 	float: left;
@@ -6,6 +7,60 @@
 	width: 100%;
 	background: url(../img/beij.jpg);
 }
+ img{
+      position: absolute;
+    }
+    .nodeSmall {
+      width: 60px;
+      height: 50px;
+      background: url(../img/bgs.png) no-repeat -159px -51px;
+      position: fixed;
+      right: 10px;
+      top: 35%;
+    }
+    .erweima {
+      position: absolute;
+      top: 0;
+      left: -150px;
+    }
+    .nodeSmall a {
+      display: block;
+      width: 50px;
+      height: 50px;
+    }
+    .hide {
+      display: none;
+    }
+
+    .show {
+      display: block;
+    }
+    .mm {
+      margin-top: 20px;
+      width: 200px;
+      height: 10px;
+      background-color: green;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  .box {
+      width: 322px;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      overflow: hidden;
+    
+    }
+
+  .box span {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+    }
 
 #drv {
 	margin-top: 0px;
@@ -107,6 +162,7 @@ p.comments {
 	clear: both;
 	display: block;
 	font-size: 0pt;
+	
 }
 
 #loco {
@@ -274,43 +330,57 @@ a {
 .header-nav {
 	height: 100px;
 	position: relative;
+
 }
 
 .header-nav .nav-list {
-	height: 80px;
+	width: 100%;
+	height: 100%;
 	font-size: 26px;
-	padding: 20px 40px 40px 38px;
+	padding: 10px 40px 40px 0px;
 	position: absolute;
+
 }
 
 .header-nav .nav-list .nav-item {
-	list-style-type: none;
+/*	list-style-type: none;*/
 	float: left;
-	width: 320px;
-	margin-right: 3px;
+	width: 20%;
+	
 }
 
 .header-nav .nav-list .nav-itemm {
-	width: 150px;
+	width: 20%;
 	float: left;
 	font-size: 27px;
-	padding: 0px 15px 0 0px;
+		
 }
 
 .header-nav .nav-list .nav-itemm a {
 	display: block;
 	text-align: center;
-	padding: 26px 0 38px;
+	padding: 0px;
 	color: #000000;
+	margin: 20px 0px 0px;
 }
 
 .header-nav .nav-list .nav-item a {
 	display: block;
 	text-align: center;
-	padding: 26px 70px 38px;
+	padding: 0px;
 	color: #000000;
+	margin-top: 20px;
+}
+.header-nav .nav-list .nav-item a img{
+	margin: 30px 0px 0px;
+}
+.header-nav .nav-list .nav-itemm a img{
+	margin: 30px 0px 0px;
 }
 
+.header-nav .nav-list .nav-itemm a:hover {
+	color: chartreuse;
+}
 .header-nav .nav-list .nav-item a:hover {
 	color: red;
 }
