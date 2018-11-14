@@ -1,0 +1,366 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>管理</title>
+		<link rel="stylesheet" type="text/css" href="css/cs.css" />
+		<script src="js/select.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<!--页面顶部-->
+		<div class="top">
+
+			<div class="container">
+				<div class="top-nav clearfix">
+					<a></a> <span></span>
+				</div>
+			</div>
+
+		</div>
+		<!--页面中部-->
+		<div class="headertitle">
+			<div class="header-title">
+				<a href="#">管理界面</a>
+				<!--/* 放图片底部放字，网络不好才显示：<a href="#"class="lr">管理界面</a> */-->
+			</div>
+		</div>
+
+		<!--页面导航-->
+		<div class="header" >
+
+			<div class="header-nav">
+
+
+				<ul class="nav-list clearfix">
+					<li class="nav-item">
+						<a href="#" name="mainPage " onclick="shouye()">
+							<img src="img/main.png" width="150px" height="100px" /> 主页
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a href="#" name="locoManage" onclick="jiche()">
+							<img src="img/two.png" width="150px" height="100px" /> 机车管理
+
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a href="#" name="driverManage" onclick="siji()">
+							<img src="img/three.png" width="150px" height="100px" /> 司机管理
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a href="#" name="illegalManage " onclick="weizhang()">
+							<img src="img/i.png" width="150px" height="100px" /> 违章管理
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a href="#" name="contactInformation" onclick="lianxi()">
+							<img src="img/four.png" width="150px" height="100px" /> 联系方式
+						</a>
+
+					</li>
+				</ul>
+
+			</div>
+			<div class="maincontent-bottom">
+				&nbsp;
+			</div>
+		</div>
+		
+		
+		
+     	<img src="img/bird.png" id="im" />
+   		<div class="mm" id="dv">
+   		</div>
+	
+   		
+		<div class="nodeSmall" id="node_small">
+			<a href="#"></a>
+			<div class="erweima hide" id="er">
+				<img src="img/456.png">
+			</div>
+		</div>
+
+		<div id="maincontent" style=" display: block;">
+			<!--页面主体 -->
+			<div class="contenttext">
+				<!--页面字体-->
+
+				<h1 class="headlines"><a href="#" title="欢迎,感谢您的支持" >欢迎来到网站</a> </h1>
+				<!-- <p > 	<img src="../img/Alert.png" alt="fotos"align="right"> -->
+				<p>
+					<h2 style="text-align: left;">
+					徐州翔和高科电气有限公司于2009年02月09日在徐州市工商行政管理局登记成立。法定代表人赵湘玲，公司经营范围包括电气设备、计算机软件、通讯设备（地面卫星接收设施及无线电发射设备除外）等。
+				</h2>
+					<h3>经营范围:</h3> &nbsp;&nbsp;电气设备、计算机软件、通讯设备（地面卫星接收设施及无线电发射设备除外）开发、销售及技术服务；
+
+				</p>
+				<p>计算机系统集成；矿山机械设备及配件、建筑工程用机械及配件制造、销售；自动化监控设备安装。</p>
+				<p>(依法须经批准的项目，经相关部门批准后方可开展经营活动）</p>
+				<p>
+					<h3>所属行业</h3> 电气机械和器材制造业
+					<h3>成立日期</h3> 2005-05-25
+					<h3>公司类型</h3> 有限责任公司
+					<h3>营业期限</h3> 2009-02-09 - 2049-02-08
+					<h3>法定代表人</h3> 赵湘玲
+				</p>
+				<h3>企业地址:徐州市城北开发区时代大道1号</h3>
+
+			</div>
+
+			<div class="contentcolumn">
+				<!--页面主体右边部分-->
+				<h3><span>最新消息</span> </h3>
+				<ul>
+					<li>
+						<a href="#">1.</a>
+					</li>
+					<li>
+						<a href="#">2.</a>
+					</li>
+					<li>
+						<a href="#">3.</a>
+					</li>
+					<li>
+						<a href="#">4.</a>
+					</li>
+					<li>
+						<a href="#">5.</a>
+					</li>
+				</ul>
+				<h3><span>产品</span> </h3>
+				<ul>
+					<li>
+						<a href="#">1.</a>
+					</li>
+					<li>
+						<a href="#">2.</a>
+					</li>
+					<li>
+						<a href="#">3.</a>
+					</li>
+					<li>
+						<a href="#">4.</a>
+					</li>
+					<li>
+						<a href="#">5.</a>
+					</li>
+				</ul>
+
+				<h3><span>客户</span></h3>
+				<ul>
+					<li>
+						<a href="#"><cite> 华中地区 </cite></a>
+						<p>河南地区</p>
+					</li>
+					<li>
+						<a href="#"><cite> 华东地区 </cite></a>
+						<p>上海地区</p>
+					</li>
+				</ul>
+			</div>
+
+			<!--放置空盒子-->
+			<div class="maincontent-bottom">
+				&nbsp;
+			</div>
+		</div>
+
+		<div id="loco" style="display: none">
+			<!--机车页面主体-->
+			<div class="center">
+				<form action="" method="post">
+					<!--<input type="image" src="img/Alert.png" align="center" /> &nbsp; &nbsp; <br><br>-->
+					<input type="button" name="add" value="增加" />&nbsp;
+					<input type="button" name="modify" value="修改" />&nbsp;
+					<input type="button" name="delete" value="删除" /> &nbsp;
+					<input type="button" name="select" value="查询" onclick="query()" />&nbsp;
+					<br><br><br>
+					<table border="2" class="width1" cellspacing="0" cellpadding="0">
+
+						<tr>
+							<td><label>车号</label></td>
+							<td><input type="text" name="licenseNumber" /></td>
+							<td></td>
+							<td><label>标题</label></td>
+							<td><input type="text" name="titles" /></td>
+						</tr>
+						<tr>
+							<td><label>所属部门</label></td>
+							<td><input type="text" name="subordinateDepartment" /></td>
+							<td></td>
+							<td><label>牌号</label></td>
+							<td><input type="text" name="brandName" /></td>
+						</tr>
+						<tr>
+							<td><label>购买日期</label></td>
+							<td><input type="date" name="dateOFpurchase" /></td>
+							<td></td>
+							<td><label>发动机号</label></td>
+							<td><input type="text" name="engineNumber" /></td>
+						</tr>
+						<tr>
+							<td><label>下次保养</label></td>
+							<td><input type="date" name="nextMaintenance" /></td>
+							<td></td>
+							<td><label>厂家</label></td>
+							<td><input type="text" name="manufactor" /></td>
+						</tr>
+						<tr>
+							<td><label>备注</label></td>
+							<td colspan="4"><textarea name="remarks" cols="70" rows="5"></textarea></td>
+						</tr>
+						<tr>
+							<td><label>管理员</label></td>
+							<td><input type="text" name="administrators " /></td>
+						</tr>
+					</table>
+					<div>
+
+						<span id="sp1"></span>
+					</div>
+					<p id="msg"></p>
+					<br><br>
+					<input type="button" name="homePage" value="首页" onclick="" /> &nbsp;
+					<input type="button" name="previousPage" value="上一页" onclick="" /> &nbsp;
+					<input type="button" name="nextPage" value="下一页" onclick="" /> &nbsp;
+					<input type="button" name="tailPage" value="尾页" onclick="" /> &nbsp;
+
+				</form>
+			</div>
+		</div>
+
+		<div id="drv" align="center" style="display: none">
+			<!--司机页面主体-->
+			<div class="center">
+				<form action="" method="post">
+					<!--<input type="image" src="img/Alert.png" align="center" /> &nbsp; &nbsp; <br><br>-->
+					<input type="button" name="add" value="增加" /> &nbsp;
+					<input type="button" name="modify" value="修改" /> &nbsp;
+					<input type="button" name="delete" value="删除" /> &nbsp;
+					<input type="button" onclick="query()" name="select" value="查询" />&nbsp;
+
+					<br><br><br>
+					<table border="2" class="width1" cellspacing="0" cellpadding="0">
+						<tr>
+							<td><label>工号</label></td>
+							<td><input type="text" name="workNumber" /></td>
+							<td></td>
+							<td><label>姓名</label></td>
+							<td><input type="text" name="fullName" /></td>
+						</tr>
+						<tr>
+							<td><label>所属部门</label></td>
+							<td><input type="text" name="subordinateDepartment" /></td>
+							<td></td>
+							<td><label>工种</label></td>
+							<td><input type="text" name="typeOFwork" /></td>
+						</tr>
+						<tr>
+							<td><label>出生日期</label></td>
+							<td><input type="date" name="DateOFbirth" /></td>
+							<td></td>
+							<td><label>证件号码</label></td>
+							<td><input type="text" name="identificationNumber" /></td>
+						</tr>
+						<tr>
+							<td><label>入职时间</label></td>
+							<td><input type="date" name="TimeOFentry " /></td>
+							<td></td>
+							<td><label>电话</label></td>
+							<td><input type="text" name="telephone" /> </td>
+						</tr>
+						<tr>
+							<td><label>文化面貌</label> </td>
+							<td><input type="text" name="culturalFeatures" /> </td>
+							<td></td>
+							<td><label>政治面貌</label> </td>
+							<td><input type="text" name="politicalOutlook" /></td>
+						</tr>
+						<tr>
+							<td><label>备注</label></td>
+							<td colspan="4"><textarea name="remarks" cols="70" rows="5"></textarea></td>
+						</tr>
+
+					</table>
+					<div>
+						<span id="support"></span>
+						<hr><br>
+						<span id="sp"></span>
+					</div>
+					<br><br>
+					<input type="button" name="homePage" value="首页" onclick="" /> &nbsp;
+					<input type="button" name="previousPage" value="上一页" onclick="" /> &nbsp;
+					<input type="button" name="nextPage" value="下一页" onclick="" /> &nbsp;
+					<input type="button" name="tailPage" value="尾页" onclick="" /> &nbsp;
+				</form>
+			</div>
+
+			<div class="maincontent-bottom">
+				&nbsp;
+			</div>
+		</div>
+
+		<div id="weiz" align="center" style="display: none" onclick="query()">
+			<!--违章抓拍页面主体-->
+
+			<table border="2" cellpadding="9" class="width1">
+				<caption></caption>
+				<thead>
+					<tr>
+						<th>序号</th>
+						<th>日期</th>
+						<th>车号</th>
+						<th>驾驶员</th>
+						<th>信号灯编号</th>
+						<th>地点</th>
+					</tr>
+
+				</thead>
+
+			</table>
+			<div id="j_tb">
+				<span id="sp2" class="width1"></span>
+			</div>
+			<table border="2" cellpadding="9" class="width1">
+				<tr>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+		<div id="lianx" align="center" style="display: none;" >
+			<table border="2" cellpadding="9" class="width1">
+				<caption></caption>
+			</table>
+
+		</div>
+		<div class="maincontent-bottom">
+			&nbsp;
+		</div>
+		   		<!--<div class="box" id="box1">
+  <span id="closeButton"></span>
+  <div class="hd" id="headPart">
+    <img src="images/t.jpg" alt=""/>
+  </div>
+  <div class="bd" id="bottomPart">
+    <img src="img/b.jpg" alt=""/>
+  </div>
+</div>-->
+
+   	
+		
+		<footer>
+			<p class="iv">
+				<a href="#">网页设计者：www</a>
+			</p>
+		</footer>
+		<script src="js/click.js" type="text/javascript"></script>
+	</body>
+
+</html>
