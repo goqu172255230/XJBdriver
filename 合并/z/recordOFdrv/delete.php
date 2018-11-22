@@ -1,11 +1,11 @@
 <?php
 
 // 接收要删除的数据 ID
-if (empty($_GET['id'])) {
+if (empty($_GET['workNumber'])) {
   exit('<h1>必须传入指定参数</h1>');
 }
 
-$id = $_GET['id']; // => 1,2,3
+$workNumber = $_GET['workNumber']; // => 1,2,3
 
 // 1. 建立连接
 $conn = mysqli_connect('localhost', 'root', 'root', 'yzm');
@@ -15,7 +15,7 @@ if (!$conn) {
 }
 
 // 2. 开始查询
-$query = mysqli_query($conn, 'delete from user where id in (' . $id . ');');
+$query = mysqli_query($conn, 'delete from drvmotive where workNumber in (' . $workNumber . ');');
 
 if (!$query) {
   exit('<h1>查询数据失败</h1>');

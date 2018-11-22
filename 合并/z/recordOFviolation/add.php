@@ -68,7 +68,7 @@ $conn = mysqli_connect('localhost', 'root', 'root', 'yzm');
   }
 
   // 响应
-  header('Location: index.php');
+  header('Location: ../index.php');
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
   <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="index.php">管理系统</a>
+    <a class="navbar-brand" href="http://www.z.com/index.php">管理系统</a>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
   
