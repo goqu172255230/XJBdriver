@@ -1,11 +1,11 @@
 <?php
 
 // 接收要修改的数据 ID
-if (empty($_GET['license_n'])) {
+if (empty($_GET['id'])) {
   exit('<h1>必须传入指定参数</h1>');
 }
 
-$license_n = $_GET['license_n'];
+$id = $_GET['id'];
 
 // 1. 建立连接
 $conn = mysqli_connect('localhost', 'root', 'root', 'yzm');
@@ -16,7 +16,7 @@ if (!$conn) {
 
 // 2. 开始查询
 // 因为 ID 是唯一的 那么找到第一个满足条件的就不用再继续了 limit 1
-$query = mysqli_query($conn, "select * from locomotive where license_n = {$license_n} limit 1;");
+$query = mysqli_query($conn, "select * from locomotive where id = {$id} limit 1;");
 
 if (!$query) {
   exit('<h1>查询数据失败</h1>');
@@ -65,7 +65,7 @@ function edit_loco(){
     $GLOBALS['error_message'] = '请输入备注';
     return;
   }
-    if (empty($_POST['user'])) {
+    if (empty($_POST['admins'])) {
     $GLOBALS['error_message'] = '请输入管理员';
     return;
   }
@@ -80,20 +80,20 @@ function edit_loco(){
    $users_loco['nextdata'] = $_POST['nextdata'];
    $users_loco['forhome'] = $_POST['forhome'];
    $users_loco['beizhu'] = $_POST['beizhu'];
-   $users_loco['user'] = $_POST['user'];
-   $users_loco['remarks'] = $_POST['remarks'];
+   $users_loco['admins'] = $_POST['admins'];
+
   
-  if(isset($_FILES['imgs'])&& $_FILES['imgs']['error']===UPLOAD_ERR_OK)
+  if(isset($_FILES['imgloco'])&& $_FILES['imgloco']['error']===UPLOAD_ERR_OK)
 {
-	$ext = pathinfo($_FILES['imgs']['name'], PATHINFO_EXTENSION);
+	$ext = pathinfo($_FILES['imgloco']['name'], PATHINFO_EXTENSION);
 
-$target = '../uploads/imgs-' . uniqid() . '.' . $ext;
+$target = '../uploads/imgloco-' . uniqid() . '.' . $ext;
 
- if (!move_uploaded_file($_FILES['imgs']['tmp_name'], $target)) {
+ if (!move_uploaded_file($_FILES['imgloco']['tmp_name'], $target)) {
     $GLOBALS['error_message'] = '上传图像失败';
     return;
   }
-  $users_loco['imgs'] = substr($target, 2);
+  $users_loco['imgloco'] = substr($target, 2);
 }  
 
 
@@ -108,9 +108,9 @@ if (!$conn) {
   brand_name= '{$users_loco['brand_name']}', buytime='{$users_loco['buytime']}',
   fanumber='{$users_loco['fanumber']}',nextdata ='{$users_loco['nextdata']}',
   forhome ='{$users_loco['forhome']}',beizhu ='{$users_loco['beizhu']}',
-  user ='{$users_loco['user']}',
-  imgs='{$users_loco['imgs']}'
-   where 1=1;");
+  admins ='{$users_loco['admins']}',
+  imgloco='{$users_loco['imgloco']}'
+   where id='{$users_loco['id']}';");
 
   if (!$query) {
     $GLOBALS['error_message'] = '查询过程失败';
@@ -155,16 +155,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </ul>
   </nav>
   <main class="container">
-    <h1 class="heading">编辑"<?php echo $users_loco['license_n']; ?>"</h1>
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>?license_n=<?php echo $users_loco['license_n'];?>" 
+    <h1 class="heading">编辑"<?php echo $users_loco['id']; ?>"</h1>
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>?id=<?php echo $users_loco['id'];?>" 
     	method="post" enctype="multipart/form-data" autocomplete="off" >
     	<div class="form-group">
     		<label for="license_n">车号</label>
     	<input type="text" class="form-control" id="license_n" name="license_n" value="<?php echo $users_loco['license_n'];?>" size="20" maxlength="20" placeholder="请输入车号，不可为空" />
     	</div>
+    	
+    	 <!--<div class="form-group"> 
+        <label for="gender">性别</label>
+        <select class="form-control" id="gender" name="gender">
+          <option value="-1">请选择性别</option>
+          <option value="1"<?php echo $user['gender'] === '1' ? ' selected': ''; ?>>男</option>
+          <option value="0"<?php echo $user['gender'] === '0' ? ' selected': ''; ?>>女</option>
+        </select>
+      </div>-->
+      
     	<div class="form-group">
-    		<label for="imgs">照片</label>
-    	<input type="file" class="form-control" id="imgs" name="imgs"  />
+    		<label for="imgloco">照片</label>
+    	<input type="file" class="form-control" id="imgloco" name="imgloco"  />
     	</div>
     	<div class="form-group">
     		<label for="title">标题</label>
@@ -203,8 +213,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     	</div>
     	</div>
     		<div class="form-group">
-    		<label for="user">管理员</label>
-    		<input type="text" class="form-control" id="user" value="<?php echo $users_loco['user'];?>" name="user" size="20" maxlength="20" />
+    		<label for="admins">管理员</label>
+    		<input type="text" class="form-control" id="admins" value="<?php echo $users_loco['admins'];?>" name="admins" size="20" maxlength="20" />
     	</div>
   	
     	<button class="btn btn-primary">保存</button>

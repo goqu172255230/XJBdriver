@@ -1,11 +1,11 @@
 <?php
 
 // 接收要删除的数据 ID
-if (empty($_GET['license_n'])) {
+if (empty($_GET['id'])) {
   exit('<h1>必须传入指定参数</h1>');
 }
 
-$license_n = $_GET['license_n']; // => 1,2,3
+$id = $_GET['id']; // => 1,2,3
 
 // 1. 建立连接
 $conn = mysqli_connect('localhost', 'root', 'root', 'yzm');
@@ -15,7 +15,7 @@ if (!$conn) {
 }
 
 // 2. 开始查询
-$query = mysqli_query($conn, 'delete from locomotive where license_n in (' . $license_n . ');');
+$query = mysqli_query($conn, 'delete from locomotive where id in (' . $id . ');');
 
 if (!$query) {
   exit('<h1>查询数据失败</h1>');

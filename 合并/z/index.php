@@ -39,10 +39,36 @@ if (!$query2) {
 		<meta charset="utf-8" />
 		<title>管理</title>
 		<link rel="stylesheet" type="text/css" href="../css/cs.css" />
+	<script src="layer/jquery.min.js"></script>
+	<script src="layer/public-method.js"></script>
+		<script src="layer/layer.js">	</script>
 	<script>
 			function my$(id) {
 				return document.getElementById(id);
 			}
+
+$(function(){
+	$("#indexs").click(function(){
+layer.msg('玩命卖萌中', function(){
+//关闭后的操作
+//layer.alert('首页', {icon: 6}); 
+
+});
+	});
+	
+	$("#a2").click(function(){
+//		layer.open({
+//type: 0,
+//title: ['联系方式qq：'],
+////closeBtn: 0,
+////shadeClose: true,
+//skin: 'layui-layer-rim',
+//content: ' 205206626'
+//});
+
+layer.alert('联系方式qq:205206626', {icon: 6}); 
+})	;
+})	
 		</script>
 	</head>
  
@@ -59,7 +85,7 @@ if (!$query2) {
 		<!--页面中部-->
 		<div class="headertitle">
 			<div class="header-title">
-				<a href="#">管理界面</a>
+				<a href="login.php" id="indexs">管理界面</a>
 				<!--/* 放图片底部放字，网络不好才显示：<a href="#"class="lr">管理界面</a> */-->
 			</div>
 		</div>
@@ -76,7 +102,8 @@ if (!$query2) {
 			my$('maincontent').style.display='block';
 			my$('loco').style.display='none';
 			my$('drv').style.display='none';
-			my$('weiz').style.display='none'
+			my$('weiz').style.display='none';
+			layer.msg('首页');
 			">
 							<img src="../img/main.png" width="150px" height="100px" /> 首页
 						</a>
@@ -88,7 +115,9 @@ if (!$query2) {
 				my$('maincontent').style.display='none';
 				my$('drv').style.display='none';
 				my$('weiz').style.display='none';
-				my$('loco').style.display='block'">
+				my$('loco').style.display='block'
+				layer.msg('车辆管理');"
+				>
 
 							<img src="../img/two.png" width="150px" height="100px" /> 机车管理
 
@@ -100,7 +129,8 @@ if (!$query2) {
 			my$('maincontent').style.display='none';
 			my$('loco').style.display='none';
 			my$('weiz').style.display='none';
-			my$('drv').style.display='block'">
+			my$('drv').style.display='block'
+			layer.msg('司机信息');">
 
 							<img src="../img/three.png" width="150px" height="100px" /> 司机管理
 						</a>
@@ -111,14 +141,15 @@ if (!$query2) {
 			my$('maincontent').style.display='none';
 			my$('loco').style.display='none';
 			my$('drv').style.display='none';
-			my$('weiz').style.display='block'">
+			my$('weiz').style.display='block'
+			layer.msg('违章信息');
+			">
 							<img src="../img/i.png" width="150px" height="100px" /> 违章管理
 						</a>
 					</li>
 
 					<li class="nav-item">
-						<a href="#"><img src="../img/four.png" width="150px" height="100px" /> 联系方式</a>
-
+						<a href="#" id="a2" ><img src="../img/four.png" width="150px" height="100px" /> 联系方式</a>
 					</li>
 				</ul>
 
@@ -218,88 +249,57 @@ if (!$query2) {
 			</div>
 		</div>
 
-		<!--onload="init()"-->
 		<div id="loco" style="display: none">
 	<table border="2" cellpadding="9" class="width1">
 				<caption></caption>
 					<thead>
-					<tr>		
+					<tr>
+						<th><label>ID</label></th>	
 						<th><label>车号</label></th>
 						<th><label>照片</label></th>				
 						<th><label>标题</label></th>	
 						<th><label>所属部门</label></th>
 						<th><label>牌号</label></th>
 						<th><label>购买日期</label></th>
-						<th><label>发动机号</label></th>
+						
 					</tr>
 					<tr>
+						<th><label>发动机号</label></th>
 						<th><label>下次保养</label></th>
 						<th><label>厂家</label></th>
 						<th><label>备注</label></th>
 						<th><label>管理员</label></th>
 						<th>操作</th>
-						<th><a href="recordOFloco/add.php">添加</a></th>
+						<th><a href="recordOFloco/add.php" >添加</a></th>
 					</tr>
 				</thead>
 				<tbody> 
 					
 						<?php while ($itemloco = mysqli_fetch_assoc($query2)): ?>		
 					  <tr>
-					  	 <th scope="row"><?php echo $itemloco['license_n'] ?></th>
-					  	 <td><img src="<?php echo $itemloco['imgs']; ?>" class="rounded" alt="<?php echo $itemloco['license_n']; ?>"></td>
+					  	<th scope="row"><?php echo $itemloco['id'] ?></th>
+					  	 <th ><?php echo $itemloco['license_n'] ?></th>
+					  	 <td><img src="<?php echo $itemloco['imgloco']; ?>" class="rounded" alt="<?php echo $itemloco['id']; ?>"></td>
 					  	 <td><?php echo $itemloco['title']; ?></td>
 					  	 <td><?php echo $itemloco['sub_dep']; ?></td>
 					  	 <td><?php echo $itemloco['brand_name']; ?></td>
 					  	 <td><?php echo $itemloco['buytime']; ?></td>
-					  	 <td><?php echo $itemloco['fanumber']; ?></td>	  
 					  </tr>
 						<tr>
+							<td><?php echo $itemloco['fanumber']; ?></td>	 
 					 	 <td><?php echo $itemloco['nextdata']; ?></td>
 					  	 <td><?php echo $itemloco['forhome']; ?></td>
 					  	 <td><?php echo $itemloco['beizhu']; ?></td>
-					  	 <td><?php echo $itemloco['user']; ?></td>	  	 
+					  	 <td><?php echo $itemloco['admins']; ?></td>	  	 
 					  	 <td>
-					  	 	<a href="recordOFloco/edit.php?license_n=<?php echo $itemloco['license_n'] ?> "><button>编辑</button></a>
-					  	 	 <a  href="recordOFloco/delete.php?license_n=<?php echo $itemloco['license_n'] ?>"><button>删除</button></a>
+					  	 	<a href="recordOFloco/edit.php?id=<?php echo $itemloco['id'] ?> "><button>编辑</button></a>
+					  	 	 <a  href="recordOFloco/delete.php?id=<?php echo $itemloco['id'] ?>" ><button >删除</button></a>
 					  	 </td>
+					  	 <td></td>
          				</tr>
 					  <?php endwhile ?>
 				</tbody>
-							<!--<tr>
-							<td><input type="text" id="chehao" size="20" name="license_n" maxlength="20" placeholder="请输入车号，不可为空" /></td>
-							<td></td>
-							<td><label>标题</label></td>
-							<td><input type="text" id="biaoti" size="20" name="title1" maxlength="20" /></td>
-						</tr>
-						<tr>
-							<td><label>所属部门</label></td>
-							<td><input type="text" id="suoshubumeng" size="20" name="sub_dep1" maxlength="20" /></td>
-							<td></td>
-							<td><label>牌号</label></td>
-							<td><input type="text" id="paihao" size="20" name="brand_name1" maxlength="20" /></td>
-						</tr>
-						<tr>
-							<td><label>购买日期</label></td>
-							<td><input type="date" id="goumairiqi" name="buytime1" size="20" maxlength="20" /></td>
-							<td></td>
-							<td><label>发动机号</label></td>
-							<td><input type="text" id="fadongjihao" name="fanumber1" size="20" maxlength="20" /></td>
-						</tr>
-						<tr>
-							<td><label>下次保养</label></td>
-							<td><input type="date" id="xiacibaoyang" name="nextdata1" size="20" maxlength="20" /></td>
-							<td></td>
-							<td><label>厂家</label></td>
-							<td><input type="text" id="changjia" name="forhome1" size="20" maxlength="20" /></td>
-						</tr>
-						<tr>
-							<td><label>备注</label></td>
-							<td colspan="4"><textarea id="beizhu" name="beizhu1" cols="70" rows="5" maxlength="500"></textarea></td>
-						</tr>
-						<tr>
-							<td><label>管理员</label></td>
-							<td><input type="text" id="guanliyuan" name="user1" size="20" maxlength="20" /></td>
-						</tr>-->
+							
 					</table>
 
 					<p id="msg"></p>
@@ -419,8 +419,7 @@ if (!$query2) {
 				<a href="#">网页设计者：www</a>
 			</p>
 		</footer>
-		<script type="text/javascript" src="../js/click.js">	
-	</script>
+		<script  src="../js/click.js">	</script>
 	</body>
 
 </html>

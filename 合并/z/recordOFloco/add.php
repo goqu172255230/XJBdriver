@@ -36,12 +36,19 @@ function add_loco(){
     $GLOBALS['error_message'] = '请输入备注';
     return;
   }
-    if (empty($_POST['user'])) {
+    if (empty($_POST['admins'])) {
     $GLOBALS['error_message'] = '请输入管理员';
     return;
   }
 
-  
+//  <div class="form-group">
+//      <label for="gender">性别</label>
+//      <select class="form-control" id="gender" name="gender">
+//        <option value="-1">请选择性别</option>
+//        <option value="1">男</option>
+//        <option value="0">女</option>
+//      </select>
+//    </div>
 
   $license_n = $_POST['license_n'];
   $title = $_POST['title'];
@@ -52,21 +59,21 @@ function add_loco(){
    $nextdata = $_POST['nextdata'];
    $forhome = $_POST['forhome'];
    $beizhu = $_POST['beizhu'];
-   $user = $_POST['user'];
+   $admins = $_POST['admins'];
 
-if (empty($_FILES['imgs'])) {
+if (empty($_FILES['imgloco'])) {
     $GLOBALS['error_message'] = '请上传图像';
     return;
 }
- $ext = pathinfo($_FILES['imgs']['name'], PATHINFO_EXTENSION);
+ $ext = pathinfo($_FILES['imgloco']['name'], PATHINFO_EXTENSION);
   // => jpg
-$target = '../uploads/imgs-' . uniqid() . '.' . $ext;
+$target = '../uploads/imgloco-' . uniqid() . '.' . $ext;
 
- if (!move_uploaded_file($_FILES['imgs']['tmp_name'], $target)) {
+ if (!move_uploaded_file($_FILES['imgloco']['tmp_name'], $target)) {
     $GLOBALS['error_message'] = '上传图像失败';
     return;
   }
-  $imgs = substr($target, 2);
+  $imgloco = substr($target, 2);
 
 
 $conn = mysqli_connect('localhost', 'root', 'root', 'yzm');
@@ -79,7 +86,7 @@ $conn = mysqli_connect('localhost', 'root', 'root', 'yzm');
   // 2. 开始查询
   $query = mysqli_query($conn, "insert into locomotive values (null,'{$license_n}', '{$title}', 
   '{$sub_dep}', '{$brand_name}','{$buytimeh}','{$fanumber}', '{$nextdata}', '{$forhome}', 
-  '{$beizhu}', '{$user}', '{$imgs}' );");
+  '{$beizhu}', '{$admins}', '{$imgloco}' );");
 
   if (!$query) {
     $GLOBALS['error_message'] = '查询过程失败';
@@ -113,7 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
   <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="http://www.z.com/index.php">管理系统</a>
+    <a class="navbar-brand" href="http://www.z.com/index.php">机车管理系统</a>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
   
@@ -132,8 +139,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     	<input type="text" class="form-control" id="license_n" size="20" name="license_n" maxlength="20" placeholder="请输入车号，不可为空" />
     	</div>
     	<div class="form-group">
-    		<label for="imgs">照片</label>
-    	<input type="file" class="form-control" id="imgs" name="imgs"  />
+    		<label for="imgloco">照片</label>
+    	<input type="file" class="form-control" id="imgloco" name="imgloco"  />
     	</div>
     	<div class="form-group">
     		<label for="title">标题</label>
@@ -172,8 +179,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     	</div>
     	</div>
     		<div class="form-group">
-    		<label for="user">管理员</label>
-    		<input type="text" class="form-control" id="user" name="user" size="20" maxlength="20" />
+    		<label for="admins">管理员</label>
+    		<input type="text" class="form-control" id="admins" name="admins" size="20" maxlength="20" />
     	</div>
  	
     	<button class="btn btn-primary">保存</button>
