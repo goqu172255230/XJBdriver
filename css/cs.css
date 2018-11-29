@@ -11,6 +11,22 @@ img {
 	position: absolute;
 }
 
+#tableloco input {
+	width: 200px;
+}
+
+#tableloco textarea {
+	width: 550px;
+}
+
+#tabledrv input {
+	width: 200px;
+}
+
+#tabledrv textarea {
+	width: 550px;
+}
+
 .nodeSmall {
 	width: 60px;
 	height: 50px;
